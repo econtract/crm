@@ -1,17 +1,17 @@
-<?php namespace Econtract\AanbiedersCrm;
+<?php namespace Econtract\Crm;
 
 
 use Illuminate\Support\ServiceProvider;
-use Econtract\AanbiedersCrm\ServiceProviders\AddressServiceProvider;
-use Econtract\AanbiedersCrm\ServiceProviders\ClientServiceProvider;
-use Econtract\AanbiedersCrm\ServiceProviders\ContractServiceProvider;
-use Econtract\AanbiedersCrm\ServiceProviders\OrderServiceProvider;
-use Econtract\AanbiedersCrm\ServiceProviders\RecommendationServiceProvider;
-use Econtract\AanbiedersCrm\ServiceProviders\CallMeBackLeadServiceProvider;
-use Econtract\AanbiedersCrm\ServiceProviders\ClickOutLeadServiceProvider;
-use Econtract\AanbiedersCrm\ServiceProviders\ReferralLeadServiceProvider;
+use Econtract\Crm\ServiceProviders\AddressServiceProvider;
+use Econtract\Crm\ServiceProviders\ClientServiceProvider;
+use Econtract\Crm\ServiceProviders\ContractServiceProvider;
+use Econtract\Crm\ServiceProviders\OrderServiceProvider;
+use Econtract\Crm\ServiceProviders\RecommendationServiceProvider;
+use Econtract\Crm\ServiceProviders\CallMeBackLeadServiceProvider;
+use Econtract\Crm\ServiceProviders\ClickOutLeadServiceProvider;
+use Econtract\Crm\ServiceProviders\ReferralLeadServiceProvider;
 
-class AanbiedersCrmServiceProvider extends ServiceProvider {
+class CrmServiceProvider extends ServiceProvider {
 
     protected $defer = false;
 
@@ -125,15 +125,15 @@ class AanbiedersCrmServiceProvider extends ServiceProvider {
 
     protected function registerCrmService()
     {
-        $this->app['AanbiedersCrm'] = $this->app->share(
+        $this->app['Crm'] = $this->app->share(
             function($app)
             {
                 return new CrmService(
                     $app['Crm.address'],
                     $app['Crm.client'],
+                    $app['Crm.recommendation'],
                     $app['Crm.contract'],
                     $app['Crm.order'],
-                    $app['Crm.recommendation'],
                     $app['Crm.callMeBackLead'],
                     $app['Crm.clickOutLead'],
                     $app['Crm.referralLead']
@@ -147,7 +147,7 @@ class AanbiedersCrmServiceProvider extends ServiceProvider {
      */
     public function provides()
     {
-        return array('AanbiedersCrm');
+        return array('Crm');
     }
 
     public function boot()

@@ -1,7 +1,7 @@
-<?php namespace Econtract\AanbiedersCrm\Traits;
+<?php namespace Econtract\Crm\Traits;
 
 
-use Econtract\AanbiedersCrm\ServiceProviders\ClickOutLeadServiceProvider;
+use Econtract\Crm\ServiceProviders\ClickOutLeadServiceProvider;
 
 trait ClickOutLeadTrait {
 

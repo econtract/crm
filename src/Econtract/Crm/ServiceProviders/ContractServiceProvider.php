@@ -1,4 +1,4 @@
-<?php namespace Econtract\AanbiedersCrm\ServiceProviders;
+<?php namespace Econtract\Crm\ServiceProviders;
 
 
 class ContractServiceProvider extends BaseServiceProvider {

@@ -1,8 +1,8 @@
 {
-    "name": "econtract/aanbieders-api",
-    "description": "E-Contract BVBA API package",
+    "name": "econtract/crm",
+    "description": "E-Contract BVBA CRM API package",
     "version": "0.0.1",
-    "keywords": ["API", "E-Contract", "Aanbieders"],
+    "keywords": ["API", "E-Contract", "Aanbieders", "CRM"],
     "homepage": "http://aanbieders.be",
     "license": "proprietary",
 
@@ -30,7 +30,7 @@
 
     "autoload": {
         "psr-0": {
-            "econtract\\AanbiedersApi\\": "src/"
+            "econtract\\crm\\": "src/"
         }
     },
 

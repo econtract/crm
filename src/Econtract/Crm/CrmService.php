@@ -1,22 +1,22 @@
-<?php namespace Econtract\AanbiedersCrm;
+<?php namespace Econtract\Crm;
 
 
-use Econtract\AanbiedersCrm\ServiceProviders\AddressServiceProvider;
-use Econtract\AanbiedersCrm\ServiceProviders\ClientServiceProvider;
-use Econtract\AanbiedersCrm\ServiceProviders\RecommendationServiceProvider;
-use Econtract\AanbiedersCrm\ServiceProviders\ContractServiceProvider;
-use Econtract\AanbiedersCrm\ServiceProviders\OrderServiceProvider;
-use Econtract\AanbiedersCrm\ServiceProviders\CallMeBackLeadServiceProvider;
-use Econtract\AanbiedersCrm\ServiceProviders\ClickOutLeadServiceProvider;
-use Econtract\AanbiedersCrm\ServiceProviders\ReferralLeadServiceProvider;
-use Econtract\AanbiedersCrm\Traits\AddressTrait;
-use Econtract\AanbiedersCrm\Traits\ClientTrait;
-use Econtract\AanbiedersCrm\Traits\RecommendationTrait;
-use Econtract\AanbiedersCrm\Traits\ContractTrait;
-use Econtract\AanbiedersCrm\Traits\OrderTrait;
-use Econtract\AanbiedersCrm\Traits\CallMeBackLeadTrait;
-use Econtract\AanbiedersCrm\Traits\ClickOutLeadTrait;
-use Econtract\AanbiedersCrm\Traits\ReferralLeadTrait;
+use Econtract\Crm\ServiceProviders\AddressServiceProvider;
+use Econtract\Crm\ServiceProviders\ClientServiceProvider;
+use Econtract\Crm\ServiceProviders\RecommendationServiceProvider;
+use Econtract\Crm\ServiceProviders\ContractServiceProvider;
+use Econtract\Crm\ServiceProviders\OrderServiceProvider;
+use Econtract\Crm\ServiceProviders\CallMeBackLeadServiceProvider;
+use Econtract\Crm\ServiceProviders\ClickOutLeadServiceProvider;
+use Econtract\Crm\ServiceProviders\ReferralLeadServiceProvider;
+use Econtract\Crm\Traits\AddressTrait;
+use Econtract\Crm\Traits\ClientTrait;
+use Econtract\Crm\Traits\RecommendationTrait;
+use Econtract\Crm\Traits\ContractTrait;
+use Econtract\Crm\Traits\OrderTrait;
+use Econtract\Crm\Traits\CallMeBackLeadTrait;
+use Econtract\Crm\Traits\ClickOutLeadTrait;
+use Econtract\Crm\Traits\ReferralLeadTrait;
 
 class CrmService {
 
@@ -49,7 +49,7 @@ class CrmService {
     protected $referralLeadServiceProvider = null;
 
 
-    public function __construct($productServiceProvider = null, $supplierServiceProvider = null, $apiComparisonServiceProvider = null, $optionServiceProvider = null, $affiliateServiceProvider = null, $promotionServiceProvider = null, $addressServiceProvider = null, $clientServiceProvider = null, $recommendationServiceProvider = null, $contractServiceProvider = null, $orderServiceProvider = null, $callMeBackLeadServiceProvider = null, $clickOutLeadServiceProvider = null, $referralLeadServiceProvider = null)
+    public function __construct($addressServiceProvider = null, $clientServiceProvider = null, $recommendationServiceProvider = null, $contractServiceProvider = null, $orderServiceProvider = null, $callMeBackLeadServiceProvider = null, $clickOutLeadServiceProvider = null, $referralLeadServiceProvider = null)
     {
         $this->addressServiceProvider = $addressServiceProvider;
         $this->clientServiceProvider = $clientServiceProvider;
@@ -60,6 +60,16 @@ class CrmService {
         $this->callMeBackLeadServiceProvider = $callMeBackLeadServiceProvider;
         $this->clickOutLeadServiceProvider = $clickOutLeadServiceProvider;
         $this->referralLeadServiceProvider = $referralLeadServiceProvider;
+    }
+
+
+    /**
+     * @param string $response
+     * @return \stdClass
+     */
+    protected function returnCrmResponse($response)
+    {
+        return json_decode( $response );
     }
 
 }

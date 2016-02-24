@@ -1,8 +1,8 @@
-<?php namespace Econtract\AanbiedersCrm\Traits;
+<?php namespace Econtract\Crm\Traits;
 
 
-use Econtract\AanbiedersCrm\ServiceProviders\ContractServiceProvider;
-use Econtract\AanbiedersCrm\Exceptions\AanbiedersApiException;
+use Econtract\Crm\ServiceProviders\ContractServiceProvider;
+use Econtract\Crm\Exceptions\AanbiedersApiException;
 
 trait ContractTrait {
 

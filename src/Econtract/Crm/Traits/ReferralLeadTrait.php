@@ -1,7 +1,7 @@
-<?php namespace Econtract\AanbiedersCrm\Traits;
+<?php namespace Econtract\Crm\Traits;
 
 
-use Econtract\AanbiedersCrm\ServiceProviders\ReferralLeadServiceProvider;
+use Econtract\Crm\ServiceProviders\ReferralLeadServiceProvider;
 
 trait ReferralLeadTrait {
 

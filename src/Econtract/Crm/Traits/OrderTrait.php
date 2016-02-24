@@ -1,8 +1,8 @@
-<?php namespace Econtract\AanbiedersCrm\Traits;
+<?php namespace Econtract\Crm\Traits;
 
 
-use Econtract\AanbiedersCrm\ServiceProviders\OrderServiceProvider;
-use Econtract\AanbiedersCrm\Exceptions\AanbiedersApiException;
+use Econtract\Crm\ServiceProviders\OrderServiceProvider;
+use Econtract\Crm\Exceptions\AanbiedersApiException;
 
 trait OrderTrait {
 

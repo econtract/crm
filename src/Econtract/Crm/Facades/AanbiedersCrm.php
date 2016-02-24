@@ -1,16 +1,16 @@
-<?php namespace Econtract\AanbiedersCrm\Facades;
+<?php namespace Econtract\Crm\Facades;
 
 
 use Illuminate\Support\Facades\Facade;
 
-class AanbiedersCrm extends Facade {
+class Crm extends Facade {
 
     /**
      * @return string
      */
     protected static function getFacadeAccessor()
     {
-        return 'AanbiedersCrm';
+        return 'Crm';
     }
 
 }

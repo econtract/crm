@@ -1,4 +1,4 @@
-<?php namespace Econtract\AanbiedersCrm\ServiceProviders;
+<?php namespace Econtract\Crm\ServiceProviders;
 
 
 use Ixudra\Curl\CurlService;

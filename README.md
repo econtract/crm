@@ -1,7 +1,7 @@
-E-Contract BVBA - Aanbieders CRM package
+E-Contract BVBA - CRM package
 =============================================
 
-This package offers the Laravel integration of the Aanbieders.be CRM API. This API can be used by partners and affiliates of Aanbieders to commonicate with the Aanbieders internal CRM system.
+This package offers the integration of the Aanbieders.be CRM API. This API can be used by partners and affiliates of Aanbieders to commonicate with the Aanbieders internal CRM system.
 
 
 
@@ -14,7 +14,7 @@ Pull this package in through Composer:
 
     {
         "require": {
-            "econtract/aanbieders-crm": "0.*"
+            "econtract/crm": "0.*"
         }
     }
 
@@ -41,7 +41,7 @@ Add the service provider to your `config/app.php` file:
     'providers'             => array(
 
         //...
-        \Econtract\AanbiedersCrm\AanbiedersCrmServiceProvider::class,
+        \Econtract\Crm\CrmServiceProvider::class,
 
     )
 
@@ -54,7 +54,7 @@ Add the CRM API as an alias to your `config/app.php` file
     'facades'               => array(
 
         //...
-        'CRM'                   => \Econtract\AanbiedersCrm\Facades\AanbiedersApi::class,
+        'CRM'                   => \Econtract\Crm\Facades\Crm::class,
 
     ),
 
@@ -118,7 +118,7 @@ For information regarding all possible parameters and their properties, please g
 
     include('vendor/autoload.php');
 
-    use Econtract/AanbiedersCrm/CrmService;
+    use Econtract/Crm/CrmService;
 
 
     $crmService = new CrmService();
