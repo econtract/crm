@@ -105,6 +105,10 @@ For information regarding all possible parameters and their properties, please g
     use Econtract/Crm/CrmService;
 
 
+    $dotenv = new Dotenv\Dotenv(__DIR__);
+    $dotenv->load();
+
+
     $crmService = new CrmService();
     $contract = $crmService->getContract( 63 );
 
