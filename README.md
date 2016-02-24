@@ -14,7 +14,7 @@ Pull this package in through Composer:
 
     {
         "require": {
-            "econtract/crm": "0.*"
+            "econtract/crm": "1.*"
         }
     }
 
@@ -25,7 +25,8 @@ Next, you will need to add several values to your `.env` file:
 ```
 
     AB_CRM_URL=http://foo.com/bar           // URL to the Aanbieders CRM system
-    AB_CRM_KEY=your_crm_key                 // Unique CRM identification key
+    AB_CRM_ID=your_crm_api_id               // Your unique CRM API ID
+    AB_CRM_KEY=your_crm_api_key             // Your unique CRM API key
 
 ```
 
@@ -80,27 +81,10 @@ You can access the API using the alias you have selected in your `config/app.php
         'supplier_id'                   => 5,
         'client_id'                     => 23,
         'address_id'                    => 5,
-        'invoice_address_id'            => 5,
-        'contract_status_id'            => 1,
-        'customer_refnr'                => 'Foo_customer_refnr',
-        'order_refnr'                   => 'Foo_order_refnr',
-        'contract_refnr'                => 'Foo_contract_refnr',
-        'start_date'                    => '2015-03-22',
-        'end_date'                      => '2015-03-29',
-        'duration'                      => 3,
-        'payment_method'                => 1,
-        'monthly_fee'                   => 34.98,
 
         'new_connection'                => false,
-        'new_modem'                     => true,
         'activation_date'               => '2015-03-19',
-        'install_type'                  => 4,
         'install_date'                  => '2015-03-17',
-        'has_alarm_or_phonecentral'     => true,
-        'donor_provider'                => 'Foo_donor_provider',
-        'donor_line_type'               => 5,
-        'donor_phone_nr'                => 'Foo_donor_phone_nr',
-        'donor_client_nr'               => 'Foo_donor_client_nr',
 
         'send_confirmation_mail'        => 'true',
     );

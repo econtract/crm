@@ -28,6 +28,7 @@ class AddressServiceProvider extends BaseServiceProvider {
     {
         return $this->getCurlService()
             ->to( $this->crmBaseUrl .'/addresses/'. $id )
+            ->withData( $this->addCrmApiKey() )
             ->get();
     }
 
@@ -40,7 +41,7 @@ class AddressServiceProvider extends BaseServiceProvider {
     {
         return $this->getCurlService()
             ->to( $this->crmBaseUrl .'/addresses' )
-            ->withData( $this->addDefaultAttributes( $attributes ) )
+            ->withData( $this->addCrmApiKey( $this->addDefaultAttributes( $attributes ) ) )
             ->post();
     }
 
@@ -54,7 +55,7 @@ class AddressServiceProvider extends BaseServiceProvider {
     {
         return $this->getCurlService()
             ->to( $this->crmBaseUrl .'/addresses/'. $id )
-            ->withData( $this->filterImmutableAttributes( $attributes ) )
+            ->withData( $this->addCrmApiKey( $this->filterImmutableAttributes( $attributes ) ) )
             ->post();
     }
 

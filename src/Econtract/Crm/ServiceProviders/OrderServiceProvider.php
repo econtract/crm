@@ -39,6 +39,7 @@ class OrderServiceProvider extends BaseServiceProvider {
     {
         return $this->getCurlService()
             ->to( $this->crmBaseUrl .'/orders/'. $id )
+            ->withData( $this->addCrmApiKey() )
             ->post();
     }
 
@@ -51,7 +52,7 @@ class OrderServiceProvider extends BaseServiceProvider {
     {
         return $this->getCurlService()
             ->to( $this->crmBaseUrl .'/orders' )
-            ->withData( $this->addDefaultAttributes( $attributes ) )
+            ->withData( $this->addCrmApiKey( $this->addDefaultAttributes( $attributes ) ) )
             ->post();
     }
 
@@ -64,7 +65,7 @@ class OrderServiceProvider extends BaseServiceProvider {
     {
         return $this->getCurlService()
             ->to( $this->crmBaseUrl .'/orders/'. $id )
-            ->withData( $this->filterImmutableAttributes( $attributes ) )
+            ->withData( $this->addCrmApiKey( $this->filterImmutableAttributes( $attributes ) ) )
             ->post();
     }
 

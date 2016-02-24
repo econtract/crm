@@ -40,6 +40,7 @@ class ContractServiceProvider extends BaseServiceProvider {
     {
         return $this->getCurlService()
             ->to( $this->crmBaseUrl .'/contracts/'. $id )
+            ->withData( $this->addCrmApiKey() )
             ->get();
     }
 
@@ -52,7 +53,7 @@ class ContractServiceProvider extends BaseServiceProvider {
     {
         return $this->getCurlService()
             ->to( $this->crmBaseUrl .'/contracts' )
-            ->withData( $this->addDefaultAttributes( $attributes ) )
+            ->withData( $this->addCrmApiKey( $this->addDefaultAttributes( $attributes ) ) )
             ->post();
     }
 
@@ -65,7 +66,7 @@ class ContractServiceProvider extends BaseServiceProvider {
     {
         return $this->getCurlService()
             ->to( $this->crmBaseUrl .'/contracts/'. $id )
-            ->withData( $this->filterImmutableAttributes( $attributes ) )
+            ->withData( $this->addCrmApiKey( $this->filterImmutableAttributes( $attributes ) ) )
             ->post();
     }
 

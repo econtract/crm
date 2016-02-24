@@ -18,7 +18,7 @@ class RecommendationServiceProvider extends BaseServiceProvider {
     {
         return $this->getCurlService()
             ->to( $this->crmBaseUrl .'/recommendations/'. $id )
-            ->withData( array( 'comparison_id' => $comparisonId ) )
+            ->withData( $this->addCrmApiKey( array( 'comparison_id' => $comparisonId ) ) )
             ->get();
     }
 

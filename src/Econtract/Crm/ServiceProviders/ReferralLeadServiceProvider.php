@@ -7,7 +7,7 @@ class ReferralLeadServiceProvider extends BaseServiceProvider {
     {
         return $this->getCurlService()
             ->to( $this->crmBaseUrl .'/referrals' )
-            ->withData( $this->addDefaultAttributes( $attributes ) )
+            ->withData( $this->addCrmApiKey( $this->addDefaultAttributes( $attributes ) ) )
             ->post();
     }
 

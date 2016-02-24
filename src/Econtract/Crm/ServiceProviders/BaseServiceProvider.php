@@ -30,24 +30,6 @@ class BaseServiceProvider {
     }
 
 
-    protected function getApiClient()
-    {
-        $isStaging = false;
-        if( $_SERVER[ 'API_staging' ] === 'true' ) {
-            $isStaging = true;
-        }
-
-        $this->apiClient = new \Aanbieders(
-            array(
-                'key'           => $_SERVER[ 'API_key' ],
-                'secret'        => $_SERVER[ 'API_secret' ],
-                'staging'       => $isStaging
-            )
-        );
-
-        return $this->apiClient;
-    }
-
     protected function getCurlService()
     {
         if( is_null($this->curlService) ) {
@@ -55,6 +37,14 @@ class BaseServiceProvider {
         }
 
         return $this->curlService;
+    }
+
+    protected function addCrmApiKey($attributes = array())
+    {
+        $attributes[ 'crm_api_id' ] = $_SERVER[ 'AB_CRM_ID' ];
+        $attributes[ 'crm_api_key' ] = $_SERVER[ 'AB_CRM_KEY' ];
+
+        return $attributes;
     }
 
     protected function addDefaultAttributes($attributes)
