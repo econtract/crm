@@ -40,7 +40,7 @@ class OrderServiceProvider extends BaseServiceProvider {
         return $this->getCurlService()
             ->to( $this->crmBaseUrl .'/orders/'. $id )
             ->withData( $this->addCrmApiKey() )
-            ->post();
+            ->get();
     }
 
     /**
