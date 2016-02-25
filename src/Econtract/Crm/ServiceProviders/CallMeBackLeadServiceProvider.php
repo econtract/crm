@@ -6,7 +6,7 @@ class CallMeBackLeadServiceProvider extends BaseServiceProvider {
     public function createCallMeBackLead($attributes = array())
     {
         return $this->getCurlService()
-            ->to( $this->crmBaseUrl .'/leads' )
+            ->to( $this->crmBaseUrl .'/api/leads' )
             ->withData( $this->addCrmApiKey( $this->addDefaultAttributes( $attributes ) ) )
             ->post();
     }

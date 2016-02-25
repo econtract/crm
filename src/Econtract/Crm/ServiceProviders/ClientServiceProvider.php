@@ -45,7 +45,7 @@ class ClientServiceProvider extends BaseServiceProvider {
     public function getClient($id)
     {
         return $this->getCurlService()
-            ->to( $this->crmBaseUrl .'/clients/'. $id )
+            ->to( $this->crmBaseUrl .'/api/clients/'. $id )
             ->withData( $this->addCrmApiKey() )
             ->get();
     }
@@ -58,7 +58,7 @@ class ClientServiceProvider extends BaseServiceProvider {
     public function searchClient($query)
     {
         return $this->getCurlService()
-            ->to( $this->crmBaseUrl .'/clients/search' )
+            ->to( $this->crmBaseUrl .'/api/clients/search' )
             ->withData( $this->addCrmApiKey( array( 'query' => $query ) ) )
             ->post();
     }
@@ -71,7 +71,7 @@ class ClientServiceProvider extends BaseServiceProvider {
     public function createClient($attributes = array())
     {
         return $this->getCurlService()
-            ->to( $this->crmBaseUrl .'/clients' )
+            ->to( $this->crmBaseUrl .'/api/clients' )
             ->withData( $this->addCrmApiKey( $this->addDefaultAttributes( $attributes ) ) )
             ->post();
     }
@@ -85,7 +85,7 @@ class ClientServiceProvider extends BaseServiceProvider {
     public function updateClient($id, $attributes = array())
     {
         return $this->getCurlService()
-            ->to( $this->crmBaseUrl .'/clients/'. $id )
+            ->to( $this->crmBaseUrl .'/api/clients/'. $id )
             ->withData( $this->addCrmApiKey( $this->filterImmutableAttributes( $attributes ) ) )
             ->post();
     }

@@ -39,7 +39,7 @@ class ContractServiceProvider extends BaseServiceProvider {
     public function getContract($id)
     {
         return $this->getCurlService()
-            ->to( $this->crmBaseUrl .'/contracts/'. $id )
+            ->to( $this->crmBaseUrl .'/api/contracts/'. $id )
             ->withData( $this->addCrmApiKey() )
             ->get();
     }
@@ -52,7 +52,7 @@ class ContractServiceProvider extends BaseServiceProvider {
     public function createContract($attributes = array())
     {
         return $this->getCurlService()
-            ->to( $this->crmBaseUrl .'/contracts' )
+            ->to( $this->crmBaseUrl .'/api/contracts' )
             ->withData( $this->addCrmApiKey( $this->addDefaultAttributes( $attributes ) ) )
             ->post();
     }
@@ -65,7 +65,7 @@ class ContractServiceProvider extends BaseServiceProvider {
     public function updateContract($id, $attributes = array())
     {
         return $this->getCurlService()
-            ->to( $this->crmBaseUrl .'/contracts/'. $id )
+            ->to( $this->crmBaseUrl .'/api/contracts/'. $id )
             ->withData( $this->addCrmApiKey( $this->filterImmutableAttributes( $attributes ) ) )
             ->post();
     }
