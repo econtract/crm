@@ -14,7 +14,7 @@ Pull this package in through Composer:
 
     {
         "require": {
-            "econtract/crm": "1.*"
+            "econtract/crm": "2.*"
         }
     }
 
