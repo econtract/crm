@@ -31,6 +31,17 @@ trait LeadTrait {
      * @param array $attributes
      * @return \stdClass
      */
+    public function createKobiLead($attributes)
+    {
+        return $this->returnCrmResponse(
+            $this->getLeadServiceProvider()->createKobiLead($attributes)
+        );
+    }
+
+    /**
+     * @param array $attributes
+     * @return \stdClass
+     */
     public function createReferralLead($attributes)
     {
         return $this->returnCrmResponse(
