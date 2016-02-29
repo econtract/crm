@@ -7,9 +7,7 @@ use Econtract\Crm\ServiceProviders\ClientServiceProvider;
 use Econtract\Crm\ServiceProviders\ContractServiceProvider;
 use Econtract\Crm\ServiceProviders\OrderServiceProvider;
 use Econtract\Crm\ServiceProviders\RecommendationServiceProvider;
-use Econtract\Crm\ServiceProviders\CallMeBackLeadServiceProvider;
-use Econtract\Crm\ServiceProviders\ClickOutLeadServiceProvider;
-use Econtract\Crm\ServiceProviders\ReferralLeadServiceProvider;
+use Econtract\Crm\ServiceProviders\LeadServiceProvider;
 
 class CrmServiceProvider extends ServiceProvider {
 
@@ -35,10 +33,7 @@ class CrmServiceProvider extends ServiceProvider {
         $this->registerContractServiceProvider( $baseUrl );
         $this->registerOrderServiceProvider( $baseUrl );
         $this->registerRecommendationServiceProvider( $baseUrl );
-
-        $this->registerCallMeBackLeadServiceProvider( $baseUrl );
-        $this->registerClickOutLeadServiceProvider( $baseUrl );
-        $this->registerReferralLeadServiceProvider( $baseUrl );
+        $this->registerLeadServiceProvider( $baseUrl );
 
         $this->registerCrmService();
     }
@@ -93,32 +88,12 @@ class CrmServiceProvider extends ServiceProvider {
         );
     }
 
-    protected function registerCallMeBackLeadServiceProvider($baseUrl)
+    protected function registerLeadServiceProvider($baseUrl)
     {
-        $this->app['Crm.callMeBackLead'] = $this->app->share(
+        $this->app['Crm.lead'] = $this->app->share(
             function($app) use ($baseUrl)
             {
-                return new CallMeBackLeadServiceProvider( $baseUrl );
-            }
-        );
-    }
-
-    protected function registerClickOutLeadServiceProvider($baseUrl)
-    {
-        $this->app['Crm.clickOutLead'] = $this->app->share(
-            function($app) use ($baseUrl)
-            {
-                return new ClickOutLeadServiceProvider( $baseUrl );
-            }
-        );
-    }
-
-    protected function registerReferralLeadServiceProvider($baseUrl)
-    {
-        $this->app['Crm.referralLead'] = $this->app->share(
-            function($app) use ($baseUrl)
-            {
-                return new ReferralLeadServiceProvider( $baseUrl );
+                return new LeadServiceProvider( $baseUrl );
             }
         );
     }
@@ -134,9 +109,7 @@ class CrmServiceProvider extends ServiceProvider {
                     $app['Crm.recommendation'],
                     $app['Crm.contract'],
                     $app['Crm.order'],
-                    $app['Crm.callMeBackLead'],
-                    $app['Crm.clickOutLead'],
-                    $app['Crm.referralLead']
+                    $app['Crm.lead']
                 );
             }
         );
