@@ -12,7 +12,7 @@ trait LeadTrait {
     public function createCallMeBackLead($attributes)
     {
         return $this->returnCrmResponse(
-            $this->getLeadServiceProvider()->createCallMeBackLead($attributes)
+            $this->getLeadServiceProvider()->createLead('call_me_back', $attributes)
         );
     }
 
@@ -28,13 +28,14 @@ trait LeadTrait {
     }
 
     /**
+     * @param string $leadType
      * @param array $attributes
      * @return \stdClass
      */
-    public function createKobiLead($attributes)
+    public function createLead($leadType, $attributes)
     {
         return $this->returnCrmResponse(
-            $this->getLeadServiceProvider()->createKobiLead($attributes)
+            $this->getLeadServiceProvider()->createLead($leadType, $attributes)
         );
     }
 

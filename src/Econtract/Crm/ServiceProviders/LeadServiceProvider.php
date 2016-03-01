@@ -3,26 +3,12 @@
 
 class LeadServiceProvider extends BaseServiceProvider {
 
-    public function createCallMeBackLead($attributes = array())
-    {
-        $attributes[ 'lead_type' ] = 'call_me_back';
-
-        return $this->createLead( $attributes );
-    }
-
     public function createClickOutLead($attributes = array())
     {
         return $this->getCurlService()
             ->to( $this->crmBaseUrl .'/api/leads/clickOut' )
             ->withData( $this->addCrmApiKey( $this->addDefaultAttributes( $attributes ) ) )
             ->post();
-    }
-
-    public function createKobiLead($attributes = array())
-    {
-        $attributes[ 'lead_type' ] = 'kobi';
-
-        return $this->createLead( $attributes );
     }
 
     public function createReferralLead($attributes = array())
@@ -33,8 +19,10 @@ class LeadServiceProvider extends BaseServiceProvider {
             ->post();
     }
 
-    protected function createLead($attributes = array())
+    public function createLead($leadType, $attributes = array())
     {
+        $attributes[ 'lead_type' ] = $leadType;
+
         return $this->getCurlService()
             ->to( $this->crmBaseUrl .'/api/leads' )
             ->withData( $this->addCrmApiKey( $this->addDefaultAttributes( $attributes ) ) )

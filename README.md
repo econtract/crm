@@ -55,7 +55,7 @@ Add the CRM API as an alias to your `config/app.php` file
     'facades'               => array(
 
         //...
-        'CRM'                   => \Econtract\Crm\Facades\Crm::class,
+        'Crm'                   => \Econtract\Crm\Facades\Crm::class,
 
     ),
 
