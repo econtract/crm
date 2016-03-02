@@ -57,6 +57,19 @@ class OrderServiceProvider extends BaseServiceProvider {
     }
 
     /**
+     * Submit a POST request to create a new order (including client, addresses and contract) to the CRM API
+     * @param       array $attributes       Data array containing all the client, address, invoice address, order and contract attributes
+     * @return      mixed
+     */
+    public function createFullOrder($attributes = array())
+    {
+        return $this->getCurlService()
+            ->to( $this->crmBaseUrl .'/api/orders/full' )
+            ->withData( $this->addCrmApiKey( $this->addDefaultAttributes( $attributes ) ) )
+            ->post();
+    }
+
+    /**
      * Submit a POST request to create a new order to the CRM API
      * @param       array $attributes       Data array containing all the order attributes
      * @return      mixed

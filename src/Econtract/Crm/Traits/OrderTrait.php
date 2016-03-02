@@ -29,6 +29,17 @@ trait OrderTrait {
     }
 
     /**
+     * @param array $attributes
+     * @return \stdClass
+     */
+    public function createFullOrder($attributes)
+    {
+        return $this->returnCrmResponse(
+            $this->getOrderServiceProvider()->createFullOrder($attributes)
+        );
+    }
+
+    /**
      * @param int $id
      * @param array $attributes
      * @return \stdClass
