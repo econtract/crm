@@ -3,22 +3,6 @@
 
 class AddressServiceProvider extends BaseServiceProvider {
 
-    public function __construct($baseUrl = null)
-    {
-        parent::__construct($baseUrl);
-
-        $this->defaults = array(
-            'street'        => '',
-            'nr'            => '',
-            'box'           => '',
-            'postal_code'   => '',
-            'city'          => '',
-            'country'       => '',
-            'client_id'     => 0,
-        );
-    }
-
-
     /**
      * Submit a GET request to recover address information for a specific $id to the CRM API
      * @param       integer $id             ID of the address to be recovered
@@ -41,7 +25,7 @@ class AddressServiceProvider extends BaseServiceProvider {
     {
         return $this->getCurlService()
             ->to( $this->crmBaseUrl .'/api/addresses' )
-            ->withData( $this->addCrmApiKey( $this->addDefaultAttributes( $attributes ) ) )
+            ->withData( $this->addCrmApiKey( $attributes ) )
             ->post();
     }
 

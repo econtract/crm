@@ -3,12 +3,6 @@
 
 class RecommendationServiceProvider extends BaseServiceProvider {
 
-    public function __construct($baseUrl = null)
-    {
-        parent::__construct($baseUrl);
-    }
-
-
     /**
      * Submit a GET request to recover recommendation information for a specific $id to the CRM API
      * @param       integer $id             ID of the recommendation to be recovered

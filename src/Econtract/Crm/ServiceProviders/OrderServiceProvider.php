@@ -7,25 +7,8 @@ class OrderServiceProvider extends BaseServiceProvider {
     {
         parent::__construct($baseUrl);
 
-        $this->defaults = array(
-            'client_id'                 => 0,
-            'contract_id'               => 0,
-            'order_nr'                  => '',
-            'remarks'                   => '',
-            'comparison_id'             => 0,
-            'status'                    => 0,
-            'cancellation_reason'       => 0,
-            'sales_channel'             => '',
-            'campaign_id'               => '',
-            'affiliate_id'              => 0,
-            'user_id'                   => 0,
-            'fulfillment_status'        => 0,
-            'billing_status'            => 0,
-            'commission'                => 0
-        );
-
         $this->guards = array(
-            'status'
+            'status',
         );
     }
 
@@ -52,7 +35,7 @@ class OrderServiceProvider extends BaseServiceProvider {
     {
         return $this->getCurlService()
             ->to( $this->crmBaseUrl .'/api/orders' )
-            ->withData( $this->addCrmApiKey( $this->addDefaultAttributes( $attributes ) ) )
+            ->withData( $this->addCrmApiKey( $attributes ) )
             ->post();
     }
 
@@ -65,7 +48,7 @@ class OrderServiceProvider extends BaseServiceProvider {
     {
         return $this->getCurlService()
             ->to( $this->crmBaseUrl .'/api/orders/full' )
-            ->withData( $this->addCrmApiKey( $this->addDefaultAttributes( $attributes ) ) )
+            ->withData( $this->addCrmApiKey( $attributes ) )
             ->post();
     }
 

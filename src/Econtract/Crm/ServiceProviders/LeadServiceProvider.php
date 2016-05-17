@@ -7,15 +7,15 @@ class LeadServiceProvider extends BaseServiceProvider {
     {
         return $this->getCurlService()
             ->to( $this->crmBaseUrl .'/api/leads/clickOut' )
-            ->withData( $this->addCrmApiKey( $this->addDefaultAttributes( $attributes ) ) )
+            ->withData( $this->addCrmApiKey( $attributes ) )
             ->post();
     }
 
     public function createReferralLead($attributes = array())
     {
         return $this->getCurlService()
-            ->to( $this->crmBaseUrl .'/api/referrals' )
-            ->withData( $this->addCrmApiKey( $this->addDefaultAttributes( $attributes ) ) )
+            ->to( $this->crmBaseUrl .'/api/leads/referral' )
+            ->withData( $this->addCrmApiKey( $attributes ) )
             ->post();
     }
 
@@ -25,7 +25,7 @@ class LeadServiceProvider extends BaseServiceProvider {
 
         return $this->getCurlService()
             ->to( $this->crmBaseUrl .'/api/leads' )
-            ->withData( $this->addCrmApiKey( $this->addDefaultAttributes( $attributes ) ) )
+            ->withData( $this->addCrmApiKey( $attributes ) )
             ->post();
     }
 

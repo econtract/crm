@@ -11,8 +11,6 @@ class BaseServiceProvider {
 
     protected $crmBaseUrl = null;
 
-    protected $defaults = array();
-
     protected $guards = array();
 
 
