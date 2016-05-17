@@ -14,7 +14,7 @@ class LeadServiceProvider extends BaseServiceProvider {
     public function createReferralLead($attributes = array())
     {
         return $this->getCurlService()
-            ->to( $this->crmBaseUrl .'/api/leads/referral' )
+            ->to( $this->crmBaseUrl .'/api/referrals' )
             ->withData( $this->addCrmApiKey( $attributes ) )
             ->post();
     }
