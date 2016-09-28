@@ -14,6 +14,28 @@ class OrderServiceProvider extends BaseServiceProvider {
 
 
     /**
+     * Fetch latest orders
+     *
+     * Available filters are:
+     *  limit - limits number of returned items (min: 1, max: 100, default: 10)
+     *  age - order maximum age in days (min: 1)
+     *  address_zipcode - Zipcode on which order was placed
+     *  client_language - Client language in ISO-639-1 format (nl or fr)
+     *  product_type - Product type (electricity, gas, dualfuel_pack, mobile, etc.)
+     *  affiliate_id - An affiliate identifier (integer)
+     *
+     * @param  array $filters One or all of available filters
+     * @return      mixed
+     */
+    public function getLatestOrders(array $filters = array())
+    {
+        return $this->getCurlService()
+            ->to( $this->crmBaseUrl .'/api/orders/latest' )
+            ->withData( $this->addCrmApiKey( $filters ) )
+            ->get();
+    }
+
+    /**
      * Submit a GET request to recover order information for a specific $id to the CRM API
      * @param       integer $id             ID of the order to be recovered
      * @return      mixed
