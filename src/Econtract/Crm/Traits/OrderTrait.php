@@ -7,6 +7,17 @@ use Econtract\Crm\Exceptions\AanbiedersApiException;
 trait OrderTrait {
 
     /**
+     * @param array $filters
+     * @return \stdClass
+     */
+    public function getLatestOrders(array $filters = [])
+    {
+        return $this->returnCrmResponse(
+            $this->getOrderServiceProvider()->getLatestOrders($filters)
+        );
+    }
+
+    /**
      * @param int $id
      * @return \stdClass
      */
