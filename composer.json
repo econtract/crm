@@ -1,7 +1,7 @@
 {
     "name": "econtract/crm",
     "description": "E-Contract BVBA CRM API package",
-    "version": "2.2.0",
+    "version": "2.3.0",
     "keywords": ["API", "E-Contract", "Aanbieders", "CRM"],
     "homepage": "http://aanbieders.be",
     "license": "proprietary",

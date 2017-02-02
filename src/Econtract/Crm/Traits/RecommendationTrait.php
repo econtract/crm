@@ -17,6 +17,18 @@ trait RecommendationTrait {
         );
     }
 
+    /**
+     * @param int $id
+     * @param int $comparisonId
+     * @return \stdClass
+     */
+    public function getRenewal($id, $comparisonId = 0)
+    {
+        return $this->returnCrmResponse(
+            $this->getRecommendationServiceProvider()->getRenewal($id, $comparisonId)
+        );
+    }
+
 
     /**
      * @return RecommendationServiceProvider
