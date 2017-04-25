@@ -2,7 +2,6 @@
 
 
 use Econtract\Crm\ServiceProviders\ContractServiceProvider;
-use Econtract\Crm\Exceptions\AanbiedersApiException;
 
 trait ContractTrait {
 
@@ -14,29 +13,6 @@ trait ContractTrait {
     {
         return $this->returnCrmResponse(
             $this->getContractServiceProvider()->getContract($id)
-        );
-    }
-
-    /**
-     * @param array $attributes
-     * @return \stdClass
-     */
-    public function createContract($attributes)
-    {
-        return $this->returnCrmResponse(
-            $this->getContractServiceProvider()->createContract($attributes)
-        );
-    }
-
-    /**
-     * @param int $id
-     * @param array $attributes
-     * @return \stdClass
-     */
-    public function updateContract($id, $attributes)
-    {
-        return $this->returnCrmResponse(
-            $this->getContractServiceProvider()->updateContract($id, $attributes)
         );
     }
 

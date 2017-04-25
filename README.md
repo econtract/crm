@@ -14,9 +14,17 @@ Pull this package in through Composer:
 
     {
         "require": {
-            "econtract/crm": "2.*"
+            "econtract/crm": "3.*"
         }
     }
+
+```
+
+Or install it via the commandline:
+
+```
+
+    composer require econtract/crm
 
 ```
 
@@ -75,21 +83,18 @@ You can access the API using the alias you have selected in your `config/app.php
     $contract = Crm::getContract( 63 );
 
     $input = array(
-        'order_id'                      => 156504,
-        'producttype_id'                => 6,
+        'producttype'                   => 'gas',
         'product_id'                    => 12,
         'supplier_id'                   => 5,
-        'client_id'                     => 23,
-        'address_id'                    => 5,
 
         'new_connection'                => false,
         'activation_date'               => '2015-03-19',
         'install_date'                  => '2015-03-17',
 
-        'send_confirmation_mail'        => 'true',
+        'send_confirmation_mail'        => true,
     );
 
-    $contract = Crm::createContract( $input );
+    $contract = Crm::createOrder( $input );
 
 ```
 
