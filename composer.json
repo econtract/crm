@@ -1,19 +1,15 @@
 {
     "name": "econtract/crm",
-    "description": "E-Contract BVBA CRM API package",
+    "description": "e-Contract BVBA CRM API package",
     "version": "3.0.0",
-    "keywords": ["API", "E-Contract", "Aanbieders", "CRM"],
-    "homepage": "http://aanbieders.be",
+    "keywords": ["API", "e-Contract", "Aanbieders", "CRM"],
+    "homepage": "https://www.aanbieders.be",
     "license": "proprietary",
 
     "authors": [
         {
             "name": "Evert Engelen",
             "email": "evert@aanbieders.be"
-        },
-        {
-            "name": "Jan Oris",
-            "email": "jan.oris@ixudra.be"
         }
     ],
 

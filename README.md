@@ -14,7 +14,7 @@ Pull this package in through Composer:
 
     {
         "require": {
-            "econtract/crm": "3.*"
+            "econtract/crm": "4.*"
         }
     }
 
@@ -38,7 +38,7 @@ Next, you will need to add several values to your `.env` file:
 
 ```
 
-In order to use the CRM API (and thus this package), an API key is required. If you are in need of such a key, please get in touch with Aanbieders.be via [their website](https://www.aanbieders.be/contact).
+In order to use the CRM API (and thus this package), an API key is required. If you are in need of such a key, please get in touch via evert [at] aanbieders.be.
 
 
 ### Laravel installation
@@ -121,7 +121,6 @@ For information regarding all possible parameters and their properties, please g
 
 
 
-
 ## License
 
 This package is proprietary software and may not be copied or redistributed without explicit permission.
@@ -135,8 +134,3 @@ Evert Engelen (owner)
 
 - Email: evert@aanbieders.be
 
-
-Jan Oris (developer)
-
-- Email: jan.oris@ixudra.be
-- Telephone: +32 496 94 20 57
