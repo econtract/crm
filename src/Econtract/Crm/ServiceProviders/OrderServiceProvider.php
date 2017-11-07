@@ -47,5 +47,18 @@ class OrderServiceProvider extends BaseServiceProvider {
             ->withData( $this->addCrmApiKey( $attributes ) )
             ->post();
     }
+    
+    /**
+    * GET latest single product bt product_id or product_type
+    *
+    * product_type - Product type (electricity, gas, dualfuel_pack, mobile, etc.)
+    */
+    public function getLatestOrderByProduct(array $filters = array())
+    {
+        return $this->getCurlService()
+            ->to( $this->crmBaseUrl .'/api/orders/latestByProduct' )
+            ->withData( $this->addCrmApiKey( $filters ) )
+            ->get();
+    }
 
 }

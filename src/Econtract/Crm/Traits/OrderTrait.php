@@ -39,5 +39,16 @@ trait OrderTrait {
 
         return $this->orderServiceProvider;
     }
+    
+    /**
+     * @param array $filters
+     * @return \stdClass
+     */
+    public function getLatestOrderByProduct(array $filters = [])
+    {
+        return $this->returnCrmResponse(
+            $this->getOrderServiceProvider()->getLatestOrderByProduct($filters)
+        );
+    }
 
 }
