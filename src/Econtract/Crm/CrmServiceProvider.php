@@ -1,6 +1,7 @@
 <?php namespace Econtract\Crm;
 
 
+use Econtract\Crm\ServiceProviders\ComparisonServiceProvider;
 use Illuminate\Support\ServiceProvider;
 use Econtract\Crm\ServiceProviders\AddressServiceProvider;
 use Econtract\Crm\ServiceProviders\ClientServiceProvider;
@@ -30,6 +31,7 @@ class CrmServiceProvider extends ServiceProvider {
 
         $this->registerAddressServiceProvider( $baseUrl );
         $this->registerClientServiceProvider( $baseUrl );
+        $this->registerComparisonServiceProvider( $baseUrl );
         $this->registerContractServiceProvider( $baseUrl );
         $this->registerOrderServiceProvider( $baseUrl );
         $this->registerRecommendationServiceProvider( $baseUrl );
@@ -111,6 +113,16 @@ class CrmServiceProvider extends ServiceProvider {
                     $app['Crm.order'],
                     $app['Crm.lead']
                 );
+            }
+        );
+    }
+
+    protected function registerComparisonServiceProvider($baseUrl)
+    {
+        $this->app['Crm.comparison'] = $this->app->share(
+            function($app) use ($baseUrl)
+            {
+                return new ComparisonServiceProvider( $baseUrl );
             }
         );
     }
