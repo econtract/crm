@@ -31,6 +31,7 @@ class OrderServiceProvider extends BaseServiceProvider {
     {
         return $this->getCurlService()
             ->to( $this->crmBaseUrl .'/api/orders/latest' )
+            ->returnResponseObject()
             ->withData( $this->addCrmApiKey( $filters ) )
             ->get();
     }
@@ -44,6 +45,7 @@ class OrderServiceProvider extends BaseServiceProvider {
     {
         return $this->getCurlService()
             ->to( $this->crmBaseUrl .'/api/orders' )
+            ->returnResponseObject()
             ->withData( $this->addCrmApiKey( $attributes ) )
             ->post();
     }
@@ -57,6 +59,7 @@ class OrderServiceProvider extends BaseServiceProvider {
     {
         return $this->getCurlService()
             ->to( $this->crmBaseUrl .'/api/orders/latestByProduct' )
+            ->returnResponseObject()
             ->withData( $this->addCrmApiKey( $filters ) )
             ->get();
     }

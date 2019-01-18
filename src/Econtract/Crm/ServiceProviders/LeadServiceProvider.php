@@ -7,6 +7,7 @@ class LeadServiceProvider extends BaseServiceProvider {
     {
         return $this->getCurlService()
             ->to( $this->crmBaseUrl .'/api/leads/clickOut' )
+            ->returnResponseObject()
             ->withData( $this->addCrmApiKey( $attributes ) )
             ->post();
     }
@@ -15,6 +16,7 @@ class LeadServiceProvider extends BaseServiceProvider {
     {
         return $this->getCurlService()
             ->to( $this->crmBaseUrl .'/api/referrals' )
+            ->returnResponseObject()
             ->withData( $this->addCrmApiKey( $attributes ) )
             ->post();
     }
@@ -25,6 +27,7 @@ class LeadServiceProvider extends BaseServiceProvider {
 
         return $this->getCurlService()
             ->to( $this->crmBaseUrl .'/api/leads' )
+            ->returnResponseObject()
             ->withData( $this->addCrmApiKey( $attributes ) )
             ->post();
     }
