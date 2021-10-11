@@ -7,6 +7,7 @@ use Econtract\Crm\ServiceProviders\ComparisonServiceProvider;
 use Econtract\Crm\ServiceProviders\RecommendationServiceProvider;
 use Econtract\Crm\ServiceProviders\ContractServiceProvider;
 use Econtract\Crm\ServiceProviders\OrderServiceProvider;
+use Econtract\Crm\ServiceProviders\SupplierServiceProvider;
 use Econtract\Crm\ServiceProviders\LeadServiceProvider;
 use Econtract\Crm\Traits\AddressTrait;
 use Econtract\Crm\Traits\ClientTrait;
@@ -39,6 +40,9 @@ class CrmService {
     /** @var OrderServiceProvider $orderServiceProvider */
     protected $orderServiceProvider = null;
 
+    /** @var SupplierServiceProvider $supplierServiceProvider */
+    protected $supplierServiceProvider = null;
+
     /** @var LeadServiceProvider $leadServiceProvider */
     protected $leadServiceProvider = null;
 
@@ -50,6 +54,7 @@ class CrmService {
         $recommendationServiceProvider = null,
         $contractServiceProvider = null,
         $orderServiceProvider = null,
+        $supplierServiceProvider = null,
         $leadServiceProvider = null
     ) {
         $this->addressServiceProvider = $addressServiceProvider;
@@ -58,6 +63,7 @@ class CrmService {
         $this->recommendationServiceProvider = $recommendationServiceProvider;
         $this->contractServiceProvider = $contractServiceProvider;
         $this->orderServiceProvider = $orderServiceProvider;
+        $this->supplierServiceProvider = $supplierServiceProvider;
         $this->leadServiceProvider = $leadServiceProvider;
     }
 
@@ -68,7 +74,7 @@ class CrmService {
      */
     protected function returnCrmResponse($response)
     {
-        return json_decode($response);
+        return \json_decode($response);
     }
 
 }

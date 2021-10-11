@@ -7,6 +7,7 @@ use Econtract\Crm\ServiceProviders\AddressServiceProvider;
 use Econtract\Crm\ServiceProviders\ClientServiceProvider;
 use Econtract\Crm\ServiceProviders\ContractServiceProvider;
 use Econtract\Crm\ServiceProviders\OrderServiceProvider;
+use Econtract\Crm\ServiceProviders\SupplierServiceProvider;
 use Econtract\Crm\ServiceProviders\RecommendationServiceProvider;
 use Econtract\Crm\ServiceProviders\LeadServiceProvider;
 
@@ -35,6 +36,7 @@ class CrmServiceProvider extends ServiceProvider {
         $this->registerContractServiceProvider( $baseUrl );
         $this->registerOrderServiceProvider( $baseUrl );
         $this->registerRecommendationServiceProvider( $baseUrl );
+        $this->registerSupplierServiceProvider( $baseUrl );
         $this->registerLeadServiceProvider( $baseUrl );
 
         $this->registerCrmService();
@@ -90,6 +92,16 @@ class CrmServiceProvider extends ServiceProvider {
         );
     }
 
+    protected function registerSupplierServiceProvider($baseUrl)
+    {
+        $this->app['Crm.supplier'] = $this->app->share(
+            function($app) use ($baseUrl)
+            {
+                return new SupplierServiceProvider( $baseUrl );
+            }
+        );
+    }
+
     protected function registerLeadServiceProvider($baseUrl)
     {
         $this->app['Crm.lead'] = $this->app->share(
@@ -111,6 +123,7 @@ class CrmServiceProvider extends ServiceProvider {
                     $app['Crm.recommendation'],
                     $app['Crm.contract'],
                     $app['Crm.order'],
+                    $app['Crm.supplier'],
                     $app['Crm.lead']
                 );
             }
