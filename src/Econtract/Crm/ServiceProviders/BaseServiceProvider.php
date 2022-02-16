@@ -39,8 +39,13 @@ class BaseServiceProvider {
 
     protected function addCrmApiKey($attributes = array())
     {
-        $attributes[ 'crm_api_id' ] = $_SERVER[ 'AB_CRM_ID' ];
-        $attributes[ 'crm_api_key' ] = $_SERVER[ 'AB_CRM_KEY' ];
+        if( !array_key_exists('crm_api_id', $attributes) ) {
+            $attributes[ 'crm_api_id' ] = $_SERVER[ 'AB_CRM_ID' ];
+        }
+
+        if( !array_key_exists('crm_api_key', $attributes) ) {
+            $attributes[ 'crm_api_key' ] = $_SERVER[ 'AB_CRM_KEY' ];
+        }
 
         return $attributes;
     }
